@@ -1,30 +1,11 @@
-import React, { useState } from "react";
-import List from "./components/List/List";
-import Filter from "./components/Filter/Filter";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_COUNTRIES } from "./graphql/queries";
-import { Country } from "./models/Country";
-
-interface Data {
-  countries: Country[]
-}
+import { Data } from "./models/Data";
+import CountryListContainer from "./components/List/CountryListContainer";
 
 const App: React.FC = () => {
-  const { data, loading, error } = useQuery<Data>(
-    GET_COUNTRIES
-  );
-
-  const [filter, setFilter] = useState<string>("");
-
-  const filteredCountries: Data | undefined = data
-  ? { countries: data.countries.filter((country) =>
-      country.name.toLowerCase().includes(filter.toLowerCase())
-    )}
-  : { countries: []};
-
-  const handleFilterChange = (value: string) => {
-    setFilter(value);
-  };
+  const { data, loading, error } = useQuery<Data>(GET_COUNTRIES);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <pre>{error.message}</pre>;
@@ -32,8 +13,7 @@ const App: React.FC = () => {
   return (
     <div className="app-container">
       <h1>Country List</h1>
-      <Filter onFilterChange={handleFilterChange} />
-      {data && <List data={filteredCountries} />}
+      {data && <CountryListContainer data={data} />}
     </div>
   );
 };
