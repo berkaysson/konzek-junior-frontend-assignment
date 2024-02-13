@@ -13,16 +13,24 @@ interface CountryListContainerProps {
 const CountryListContainer: React.FC<CountryListContainerProps> = ({
   data,
 }) => {
-  const [filter, setFilter] = useState<string>("");
+  const [filterValue, setFilterValue] = useState<string>("");
+  const [filterCriteria, setFilterCriteria] = useState<keyof Country>("name");
 
   const filteredCountries: Data | undefined = data
-  ? { countries: data.countries.filter((country) =>
-      country.name.toLowerCase().includes(filter.toLowerCase())
-    )}
-  : { countries: []};
+    ? {
+        countries: data.countries.filter((country: Country) => {
+          const property = country[filterCriteria];
+          if (typeof property === "string") {
+            return property.toLowerCase().includes(filterValue.toLowerCase());
+          }
+          return false;
+        }),
+      }
+    : { countries: [] };
 
-  const handleFilterChange = (value: string) => {
-    setFilter(value);
+  const handleFilterChange = (value: string, criteria: keyof Country) => {
+    setFilterValue(value);
+    setFilterCriteria(criteria);
   };
   
   return (

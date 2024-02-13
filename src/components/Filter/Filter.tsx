@@ -1,16 +1,24 @@
 import React, { useState } from "react";
+import { Country } from "../../models/Country";
 
 interface FilterProps {
-  onFilterChange: (value: string) => void;
+  onFilterChange: (value: string, criteria: keyof Country) => void;
 }
 
 const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   const [filterValue, setFilterValue] = useState<string>("");
+  const [filterCriteria, setFilterCriteria] = useState<keyof Country>("name"); // Default filter criteria is "name"
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setFilterValue(value);
-    onFilterChange(value);
+    onFilterChange(value, filterCriteria);
+  };
+
+  const handleCriteriaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value as keyof Country;
+    setFilterCriteria(value);
+    onFilterChange(filterValue, value);
   };
 
   return (
@@ -20,8 +28,16 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         type="text"
         id="filter"
         value={filterValue}
-        onChange={handleChange}
+        onChange={handleValueChange}
       />
+      <select value={filterCriteria} onChange={handleCriteriaChange}>
+        <option value="name">Name</option>
+        <option value="code">Code</option>
+        <option value="continent">Continent</option>
+        <option value="currency">Currency</option>
+        <option value="native">Native</option>
+        <option value="phone">Phone</option>
+      </select>
     </div>
   );
 };
