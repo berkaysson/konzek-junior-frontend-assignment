@@ -1,13 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/index.css";
+import App from "./App";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+const URI = "https://countries.trevorblades.com/graphql/";
+
+interface ApolloClientOptions {
+  uri: string;
+  cache: InMemoryCache;
+}
+
+const clientOptions: ApolloClientOptions = {
+  uri: URI,
+  cache: new InMemoryCache(),
+};
+
+const client = new ApolloClient(clientOptions);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
