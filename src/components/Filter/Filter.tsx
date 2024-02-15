@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Country } from "../../models/Country";
 
 interface FilterProps {
@@ -12,14 +12,20 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setFilterValue(value);
-    onFilterChange(value, filterCriteria);
   };
 
   const handleCriteriaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value as keyof Country;
     setFilterCriteria(value);
-    onFilterChange(filterValue, value);
   };
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      onFilterChange(filterValue, filterCriteria);
+    }, 300);
+
+    return () => clearTimeout(debounce);
+  }, [filterValue, filterCriteria, onFilterChange]);
 
   return (
     <div>
