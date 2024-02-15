@@ -6,6 +6,9 @@ export function memoizedFilter(
   filterValueLower: string,
   customFilterFn?: (property: any, filterValueLower: string) => boolean
 ): Country[] {
+  if (!filterValueLower.trim()) {
+    return countries;
+  }
   return countries.filter((country: Country) => {
     const property = getProperty(country, filterCriteria);
     return customFilterFn ? customFilterFn(property, filterValueLower) : defaultFilter(property, filterValueLower);
