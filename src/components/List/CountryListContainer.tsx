@@ -20,8 +20,14 @@ const CountryListContainer: React.FC<CountryListContainerProps> = ({
     ? {
         countries: data.countries.filter((country: Country) => {
           const property = country[filterCriteria];
-          if (typeof property === "string") {
+          if (typeof property === "string" && property !== "continent") {
             return property.toLowerCase().includes(filterValue.toLowerCase());
+          } else if (filterCriteria === "continent") {
+            return (
+              property as { name: string; code: string } | undefined
+            )?.name
+              .toLowerCase()
+              .includes(filterValue.toLowerCase());
           }
           return false;
         }),
@@ -32,7 +38,7 @@ const CountryListContainer: React.FC<CountryListContainerProps> = ({
     setFilterValue(value);
     setFilterCriteria(criteria);
   };
-  
+
   return (
     <div>
       <Filter onFilterChange={handleFilterChange} />
