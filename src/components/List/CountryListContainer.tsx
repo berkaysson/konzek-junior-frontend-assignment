@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Country } from "../../models/Country";
 import { Data } from "../../models/Data";
 import Filter from "../Filter/Filter";
 import List from "./List";
+import { memoizedFilter } from "../../utils/filterUtils";
 
 interface CountryListContainerProps {
   data: {
@@ -16,23 +17,16 @@ const CountryListContainer: React.FC<CountryListContainerProps> = ({
   const [filterValue, setFilterValue] = useState<string>("");
   const [filterCriteria, setFilterCriteria] = useState<keyof Country>("name");
 
-  const filteredCountries: Data | undefined = data
-    ? {
-        countries: data.countries.filter((country: Country) => {
-          const property = country[filterCriteria];
-          if (typeof property === "string" && property !== "continent") {
-            return property.toLowerCase().includes(filterValue.toLowerCase());
-          } else if (filterCriteria === "continent") {
-            return (
-              property as { name: string; code: string } | undefined
-            )?.name
-              .toLowerCase()
-              .includes(filterValue.toLowerCase());
-          }
-          return false;
-        }),
-      }
-    : { countries: [] };
+  const filteredCountries: Data | undefined = useMemo(() => {
+    if (!data) return { countries: [] };
+    return {
+      countries: memoizedFilter(
+        data.countries,
+        filterCriteria,
+        filterValue.toLowerCase()
+      ),
+    };
+  }, [data, filterCriteria, filterValue]);
 
   const handleFilterChange = (value: string, criteria: keyof Country) => {
     setFilterValue(value);
