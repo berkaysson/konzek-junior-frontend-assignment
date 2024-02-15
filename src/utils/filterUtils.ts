@@ -20,10 +20,15 @@ function getProperty(country: Country, filterCriteria: keyof Country): any {
 }
 
 function defaultFilter(property: any, filterValueLower: string): boolean {
+  if(!property) return false
   if (typeof property === "string" && property !== "continent") {
     return property.toLowerCase().includes(filterValueLower);
-  } else if (property && typeof property === "object" && "name" in property) {
+  } else if (typeof property === "object" && "name" in property) {
     return property.name.toLowerCase().includes(filterValueLower);
+  } else if (Array.isArray(property)) {
+    return property.some((language: any) =>
+      language.name.toLowerCase().includes(filterValueLower)
+    );
   }
   return false;
 }

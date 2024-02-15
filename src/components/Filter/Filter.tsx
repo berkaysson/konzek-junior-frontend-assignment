@@ -43,6 +43,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         <option value="currency">Currency</option>
         <option value="native">Native</option>
         <option value="phone">Phone</option>
+        <option value="languages">Languages</option>
       </select>
     </div>
   );
