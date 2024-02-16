@@ -3,11 +3,18 @@ import { Country } from "../../models/Country";
 
 interface ListItemProps {
   country: Country;
+  checked: string;
+  onToggle: (code: string) => void;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ country }) => {
+const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
   return (
-    <li>
+    <li onClick={() => onToggle(country.code)} style={{ cursor: "pointer" }}>
+      <input
+        type="checkbox"
+        checked={checked === country.code}
+        onChange={() => onToggle(country.code)}
+      />
       <div>
         <strong>Name:</strong> {country.name}
       </div>
