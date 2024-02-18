@@ -69,6 +69,14 @@ const DataProvider: React.FC<{ children: React.ReactNode }> = ({
     return () => clearTimeout(debounce);
   }, [filterValue, filterCriteria]);
 
+  useEffect(() => {
+    if (filteredCountries && filteredCountries.countries.length > 0) {
+      const index = Math.min(9, filteredCountries.countries.length - 1);
+      const code = filteredCountries.countries[index].code;
+      setChecked(code);
+    }
+  }, [filteredCountries]);
+
   const values = useMemo(
     () => ({
       data,
