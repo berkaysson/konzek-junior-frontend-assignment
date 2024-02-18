@@ -11,6 +11,7 @@ interface ListItemProps {
 const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
   const [showDetails, setShowDetails] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("Copy");
+  const isItemChecked: boolean = checked === country.code;
 
   const copyCountryInfo = (): void => {
     const countryInfo: string = `${country.name}, ${country.code}, ${
@@ -28,11 +29,11 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
   };
 
   return (
-    <li className={`list-item ${checked === country.code ? "selected":""}`}>
+    <li className={`list-item ${isItemChecked ? "selected":""}`}>
       <div className="toggle-select" onClick={() => onToggle(country.code)} style={{ cursor: "pointer" }}>
         <input
           type="checkbox"
-          checked={checked === country.code}
+          checked={isItemChecked}
           onChange={() => onToggle(country.code)}
         />
         <div>
