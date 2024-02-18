@@ -1,0 +1,18 @@
+.list-item {
+  background-color: wheat;
+  position: relative;
+}
+
+.list-item.selected {
+  background-color: aliceblue;
+}
+
+.toggle-select {
+  padding: 10px;
+}
+
+.list-item-button-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

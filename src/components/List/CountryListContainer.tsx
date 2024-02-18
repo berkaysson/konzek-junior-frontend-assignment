@@ -4,6 +4,7 @@ import { Data } from "../../models/Data";
 import Filter from "../Filter/Filter";
 import List from "./List";
 import { memoizedFilter } from "../../utils/filterUtils";
+import "../../styles/CountryListContainer.css";
 
 interface CountryListContainerProps {
   data: {
@@ -34,7 +35,7 @@ const CountryListContainer: React.FC<CountryListContainerProps> = ({
   };
 
   return (
-    <div>
+    <div className="country-list-container">
       <Filter onFilterChange={handleFilterChange} />
       <List data={filteredCountries} />
     </div>

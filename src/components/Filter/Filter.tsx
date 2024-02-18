@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Country } from "../../models/Country";
+import "../../styles/Filter.css";
 
 interface FilterProps {
   onFilterChange: (value: string, criteria: keyof Country) => void;
@@ -28,15 +29,18 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
   }, [filterValue, filterCriteria, onFilterChange]);
 
   return (
-    <div>
-      <label htmlFor="filter">Filter:</label>
+    <div className="filter-container">
+      <label htmlFor="filter" className="filter-label">Filter:</label>
       <input
+        className="filter-input"
         type="text"
         id="filter"
+        name="filter"
         value={filterValue}
         onChange={handleValueChange}
       />
-      <select value={filterCriteria} onChange={handleCriteriaChange}>
+      <label htmlFor="filter-option" className="filter-label">By:</label>
+      <select value={filterCriteria} onChange={handleCriteriaChange} name="filter-option">
         <option value="name">Name</option>
         <option value="code">Code</option>
         <option value="continent">Continent</option>

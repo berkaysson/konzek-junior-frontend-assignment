@@ -1,0 +1,14 @@
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+}
+
+.filter-input {
+  margin-bottom: 10px;
+}

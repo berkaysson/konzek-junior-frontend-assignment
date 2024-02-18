@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Country } from "../../models/Country";
+import "../../styles/ListItem.css";
 
 interface ListItemProps {
   country: Country;
@@ -11,13 +12,13 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
   const [showDetails, setShowDetails] = useState<boolean>(false);
 
   return (
-    <li>
-      <input
-        type="checkbox"
-        checked={checked === country.code}
-        onChange={() => onToggle(country.code)}
-      />
-      <div onClick={() => onToggle(country.code)} style={{ cursor: "pointer" }}>
+    <li className={`list-item ${checked === country.code ? "selected":""}`}>
+      <div className="toggle-select" onClick={() => onToggle(country.code)} style={{ cursor: "pointer" }}>
+        <input
+          type="checkbox"
+          checked={checked === country.code}
+          onChange={() => onToggle(country.code)}
+        />
         <div>
           <strong>Name:</strong> {country.name} <strong>Code:</strong>{" "}
           {country.code}
@@ -57,9 +58,14 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
           ""
         )}
       </div>
-      <button onClick={() => setShowDetails(!showDetails)}>
-        {showDetails ? "Hide" : "Show"} Details
-      </button>
+      <div className="list-item-button-container">
+        <button className="details-toggle-button list-item-button" onClick={() => setShowDetails(!showDetails)}>
+          {showDetails ? "Hide" : "Show"} Details
+        </button>
+        <button className="copy-button list-item-button">
+          Copy
+        </button>
+      </div>
     </li>
   );
 };

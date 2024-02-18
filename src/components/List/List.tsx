@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ListItem from "./ListItem";
 import { Country } from "../../models/Country";
+import "../../styles/List.css";
 
 interface ListProps {
   data: {
@@ -18,8 +19,7 @@ const List: React.FC<ListProps> = ({ data }) => {
 
   return (
     <div>
-      <h2>Country List</h2>
-      <ul>
+      <ul className="list-container">
         {data.countries.map((country: { code: string; name: string }) => (
           <ListItem key={country.code} country={country} checked={checked} onToggle={handleToggle} />
         ))}

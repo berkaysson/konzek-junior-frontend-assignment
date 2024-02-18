@@ -68,3 +68,17 @@ li{
 #root{
   isolation: isolate;
 }
+
+button {
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: gray;
+}
