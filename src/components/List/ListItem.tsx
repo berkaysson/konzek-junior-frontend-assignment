@@ -10,6 +10,22 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
   const [showDetails, setShowDetails] = useState<boolean>(false);
+  const [buttonText, setButtonText] = useState<string>("Copy");
+
+  const copyCountryInfo = (): void => {
+    const countryInfo: string = `${country.name}, ${country.code}, ${
+      country.continent?.name
+    }, ${country.currency}, ${country.emoji}, ${country.languages
+      ?.map((language) => `${language.name} (${language.code})`)
+      .join(", ")}, ${country.native}, ${country.phone}, ${country.states
+      ?.map((state) => `${state.name} (${state.code})`)
+      .join(", ")}`;
+    navigator.clipboard.writeText(countryInfo);
+    setButtonText("Copied");
+    setTimeout(() => {
+      setButtonText("Copy");
+    }, 1000);
+  };
 
   return (
     <li className={`list-item ${checked === country.code ? "selected":""}`}>
@@ -62,8 +78,8 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
         <button className="details-toggle-button list-item-button" onClick={() => setShowDetails(!showDetails)}>
           {showDetails ? "Hide" : "Show"} Details
         </button>
-        <button className="copy-button list-item-button">
-          Copy
+        <button onClick={copyCountryInfo} className="copy-button list-item-button">
+          {buttonText}
         </button>
       </div>
     </li>
