@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Country } from "../../models/Country";
 import "../../styles/ListItem.css";
+import { Color } from "./List";
 
 interface ListItemProps {
   country: Country;
   checked: string;
   onToggle: (code: string) => void;
+  backgroundColor: Color;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
+const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle, backgroundColor }) => {
   const [showDetails, setShowDetails] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("Copy");
   const isItemChecked: boolean = checked === country.code;
@@ -29,8 +31,15 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
   };
 
   return (
-    <li className={`list-item ${isItemChecked ? "selected":""}`}>
-      <div className="toggle-select" onClick={() => onToggle(country.code)} style={{ cursor: "pointer" }}>
+    <li
+      className={`list-item ${isItemChecked ? "selected" : ""}`}
+      style={isItemChecked ? { backgroundColor: backgroundColor } : {}}
+    >
+      <div
+        className="toggle-select"
+        onClick={() => onToggle(country.code)}
+        style={{ cursor: "pointer" }}
+      >
         <input
           type="checkbox"
           checked={isItemChecked}
@@ -76,10 +85,16 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle }) => {
         )}
       </div>
       <div className="list-item-button-container">
-        <button className="details-toggle-button list-item-button" onClick={() => setShowDetails(!showDetails)}>
+        <button
+          className="details-toggle-button list-item-button"
+          onClick={() => setShowDetails(!showDetails)}
+        >
           {showDetails ? "Hide" : "Show"} Details
         </button>
-        <button onClick={copyCountryInfo} className="copy-button list-item-button">
+        <button
+          onClick={copyCountryInfo}
+          className="copy-button list-item-button"
+        >
           {buttonText}
         </button>
       </div>
