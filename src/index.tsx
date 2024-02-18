@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import App from "./App";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import DataProvider from "./contexts/DataContext";
 
 const URI = "https://countries.trevorblades.com/graphql/";
 
@@ -24,7 +25,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <DataProvider>
+        <App />
+      </DataProvider>
     </ApolloProvider>
   </React.StrictMode>
 );

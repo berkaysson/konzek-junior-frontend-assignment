@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListItem from "./ListItem";
-import { Country } from "../../models/Country";
 import "../../styles/List.css";
+import useData from "../../hooks/useData";
 
 const COLORS: string[] = [
   "#ff5883",
@@ -12,22 +12,12 @@ const COLORS: string[] = [
   "#39b89a",
 ];
 
-interface ListProps {
-  data: {
-    countries: Country[];
-  };
-}
 
 export type Color = typeof COLORS[number];
 
-const List: React.FC<ListProps> = ({ data }) => {
-  const [checked, setChecked] = useState<string>("");
+const List: React.FC = () => {
+  const { filteredCountries, checked } = useData();
   const [backgroundColor, setBackgroundColor] = useState<Color>(COLORS[0]);
-
-  const handleToggle = (code: string) => {
-    if(checked === code) setChecked("");
-    else setChecked(code);
-  }
 
   const getNextColor = (): Color => {
     const currentIndex = COLORS.indexOf(backgroundColor);
@@ -44,8 +34,8 @@ const List: React.FC<ListProps> = ({ data }) => {
   return (
     <div>
       <ul className="list-container">
-        {data.countries.map((country: { code: string; name: string }) => (
-          <ListItem key={country.code} country={country} checked={checked} onToggle={handleToggle} backgroundColor={backgroundColor} />
+        {filteredCountries?.countries.map((country: { code: string; name: string }) => (
+          <ListItem key={country.code} country={country} backgroundColor={backgroundColor} />
         ))}
       </ul>
     </div>

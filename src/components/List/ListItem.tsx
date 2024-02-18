@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Country } from "../../models/Country";
 import "../../styles/ListItem.css";
 import { Color } from "./List";
+import useData from "../../hooks/useData";
 
 interface ListItemProps {
   country: Country;
-  checked: string;
-  onToggle: (code: string) => void;
   backgroundColor: Color;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle, backgroundColor }) => {
+const ListItem: React.FC<ListItemProps> = ({ country, backgroundColor }) => {
+  const { checked, handleCheckedToggle } = useData();
   const [showDetails, setShowDetails] = useState<boolean>(false);
   const [buttonText, setButtonText] = useState<string>("Copy");
   const isItemChecked: boolean = checked === country.code;
@@ -37,13 +37,13 @@ const ListItem: React.FC<ListItemProps> = ({ country, checked, onToggle, backgro
     >
       <div
         className="toggle-select"
-        onClick={() => onToggle(country.code)}
+        onClick={() => handleCheckedToggle(country.code)}
         style={{ cursor: "pointer" }}
       >
         <input
           type="checkbox"
           checked={isItemChecked}
-          onChange={() => onToggle(country.code)}
+          onChange={() => handleCheckedToggle(country.code)}
         />
         <div>
           <strong>Name:</strong> {country.name} <strong>Code:</strong>{" "}

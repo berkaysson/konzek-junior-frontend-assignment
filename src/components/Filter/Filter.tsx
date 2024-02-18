@@ -1,32 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Country } from "../../models/Country";
+import React from "react";
 import "../../styles/Filter.css";
+import useData from "../../hooks/useData";
 
-interface FilterProps {
-  onFilterChange: (value: string, criteria: keyof Country) => void;
-}
-
-const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
-  const [filterValue, setFilterValue] = useState<string>("");
-  const [filterCriteria, setFilterCriteria] = useState<keyof Country>("name"); // Default filter criteria is "name"
-
-  const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setFilterValue(value);
-  };
-
-  const handleCriteriaChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value as keyof Country;
-    setFilterCriteria(value);
-  };
-
-  useEffect(() => {
-    const debounce = setTimeout(() => {
-      onFilterChange(filterValue, filterCriteria);
-    }, 300);
-
-    return () => clearTimeout(debounce);
-  }, [filterValue, filterCriteria, onFilterChange]);
+const Filter: React.FC = () => {
+  const { filterValue, filterCriteria, handleFilterValueChange, handleCriteriaChange } = useData();
 
   return (
     <div className="filter-container">
@@ -37,7 +14,7 @@ const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
         id="filter"
         name="filter"
         value={filterValue}
-        onChange={handleValueChange}
+        onChange={handleFilterValueChange}
       />
       <label htmlFor="filter-option" className="filter-label">By:</label>
       <select value={filterCriteria} onChange={handleCriteriaChange} name="filter-option">
