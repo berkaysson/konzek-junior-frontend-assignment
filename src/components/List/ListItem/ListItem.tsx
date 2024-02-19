@@ -26,11 +26,6 @@ const ListItem: React.FC<ListItemProps> = ({ country, backgroundColor }) => {
         onClick={() => handleCheckedToggle(country.code)}
         style={{ cursor: "pointer" }}
       >
-        <input
-          type="checkbox"
-          checked={isItemChecked}
-          onChange={() => handleCheckedToggle(country.code)}
-        />
         <div>
           <strong>Name:</strong> {country.name} <strong>Code:</strong>{" "}
           {country.code}
