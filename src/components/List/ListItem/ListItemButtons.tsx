@@ -1,3 +1,10 @@
+/**
+ * Component representing buttons for interacting with a country item in the list.
+ * @param country The country object associated with the buttons.
+ * @param showDetails Indicates whether country details are currently shown.
+ * @param setShowDetails Function to toggle the visibility of country details.
+ */
+
 import { ReactNode, useState } from "react";
 import { PiCaretDownBold, PiCaretUpBold, PiCheck } from "react-icons/pi";
 import { PiCopyDuotone } from "react-icons/pi";
@@ -17,7 +24,10 @@ const ListItemButtons: React.FC<ListItemButtonsProps> = ({
   const [copyButtonIcon, setcopyButtonIcon] = useState<ReactNode>(
     <PiCopyDuotone />
   );
-  
+
+  /**
+   * Copies country information to clipboard and updates button icon.
+   */
   const copyCountryInfo = (): void => {
     const countryInfo: string = `${country.name}, ${country.code}, ${
       country.continent?.name

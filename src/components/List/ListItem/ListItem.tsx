@@ -1,3 +1,9 @@
+/**
+ * Component representing a single country item in the list.
+ * @param country The country object to display.
+ * @param backgroundColor The background color of the item.
+ */
+
 import React, { useState } from "react";
 import { Country } from "../../../models/Country";
 import "../../../styles/ListItem.css";

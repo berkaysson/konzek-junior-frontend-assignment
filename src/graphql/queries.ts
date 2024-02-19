@@ -1,3 +1,9 @@
+/**
+ * GraphQL query to fetch the list of countries from the public GraphQL API.
+ * It retrieves various information about each country, including its code, name,
+ * continent, currency, emoji, languages, native name, phone code, and states (if applicable).
+ */
+
 import { gql } from "@apollo/client";
 
 export const GET_COUNTRIES = gql`

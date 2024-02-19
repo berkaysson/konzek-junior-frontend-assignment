@@ -19,18 +19,18 @@
   margin-left: 5px;
 }
 
-.filter-input:hover{
+.filter-input:hover {
   border-color: var(--color-white);
 }
 
-@media screen and (max-width: 768px){
-  .filter-container{
+@media screen and (max-width: 768px) {
+  .filter-container {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
   }
 
-  .filter-input{
+  .filter-input {
     margin-right: 0;
   }
 }

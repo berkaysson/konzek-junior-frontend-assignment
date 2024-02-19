@@ -1,3 +1,7 @@
+/**
+ * Header component for displaying the title and description of the application.
+ */
+
 import React from "react";
 
 const Header: React.FC = () => {

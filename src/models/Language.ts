@@ -1,3 +1,7 @@
+/**
+ * Represents a language.
+ */
+
 export interface Language {
   code: string;
   name: string;

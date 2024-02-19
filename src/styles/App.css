@@ -3,7 +3,7 @@
   background-color: var(--color-dark-highlight);
 }
 
-.loading{
+.loading {
   font-size: 1.2rem;
   margin-top: 20px;
 }
@@ -13,7 +13,7 @@
   margin-top: 20px;
 }
 
-#header{
+#header {
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -33,12 +33,12 @@ button {
   transition: background-color 0.2s linear;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
   background-color: var(--color-black);
   border-color: var(--color-white);
 }
 
-h1{
+h1 {
   font-size: 1.5rem;
 }

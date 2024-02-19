@@ -1,3 +1,8 @@
+/**
+ * Component displaying detailed information about a selected country.
+ * @param country The country object containing detailed information.
+ */
+
 import React from "react";
 import { Country } from "../../../models/Country";
 
@@ -32,9 +37,7 @@ const ListItemDetails: React.FC<ListItemDetailsProps> = ({ country }) => {
       </div>
       <div>
         <strong>States:</strong>{" "}
-        {country.states
-          ?.map((state) => `${state.name}`)
-          .join(", ")}
+        {country.states?.map((state) => `${state.name}`).join(", ")}
       </div>{" "}
     </>
   );
