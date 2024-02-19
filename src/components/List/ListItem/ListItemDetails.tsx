@@ -33,7 +33,7 @@ const ListItemDetails: React.FC<ListItemDetailsProps> = ({ country }) => {
       <div>
         <strong>States:</strong>{" "}
         {country.states
-          ?.map((state) => `${state.name} (${state.code})`)
+          ?.map((state) => `${state.name}`)
           .join(", ")}
       </div>{" "}
     </>
