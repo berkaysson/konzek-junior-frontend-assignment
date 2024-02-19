@@ -1,14 +1,27 @@
 .list-item {
-  background-color: rgb(209, 204, 204);
   position: relative;
+  border-top: 1px solid var(--color-highlight);
+  text-shadow: 0px 0px 4px var(--color-black);
+}
+
+.list-item:last-child{
+  border-bottom: 1px solid var(--color-highlight);
 }
 
 .toggle-select {
-  padding: 10px;
+  padding: 20px;
+}
+
+.toggle-select:hover{
+  padding-left: 15px;
 }
 
 .list-item-button-container {
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 15px;
 }
