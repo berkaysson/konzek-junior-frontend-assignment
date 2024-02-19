@@ -1,9 +1,10 @@
 .selected-country-display {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding: 20px;
-    z-index: 999;
-  }
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-black);
+  padding: 20px;
+  z-index: 999;
+  font-size: 14px;
+}
