@@ -34,6 +34,7 @@ const Filter: React.FC = () => {
           value={filterCriteria}
           onChange={handleCriteriaChange}
           name="filter-option"
+          id="filter-option"
         >
           <option value="name">Name</option>
           <option value="code">Code</option>
