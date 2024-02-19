@@ -10,14 +10,20 @@ const SelectedCountryDisplay: React.FC = () => {
   );
 
   return (
-    <div className="selected-country-display">
-      {selectedCountry && (
-        <>
-          <h2>Selected Country</h2>
-          <p>Name: {selectedCountry.name} ({selectedCountry.code})</p>
-        </>
+    <>
+      {checked && (
+        <div className="selected-country-display">
+          {selectedCountry && (
+            <>
+              <h2>Selected Country</h2>
+              <p>
+                Name: {selectedCountry.name} ({selectedCountry.code})
+              </p>
+            </>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
