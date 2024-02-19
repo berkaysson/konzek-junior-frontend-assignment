@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 
 const COLORS: string[] = [
   "#ff5883",
-  "#79d3be",
-  "#fec9d7",
-  "#b9eee1",
-  "#ff91ad",
-  "#39b89a",
+  "#0d7a7c",
+  "#2f7cf8",
+  "#2aa75a",
+  "#532c1e",
+  "#14452f",
+  "#2d0065"
 ];
 
 export type Color = (typeof COLORS)[number];
