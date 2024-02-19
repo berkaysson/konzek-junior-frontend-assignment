@@ -1,6 +1,6 @@
 .app-container {
-  width: 100%;
-  margin: 20px;
+  color: var(--color-white);
+  background-color: var(--color-dark-highlight);
 }
 
 .loading{
@@ -11,4 +11,22 @@
 .error-message {
   color: red;
   margin-top: 20px;
+}
+
+button {
+  border: 1px solid var(--color-primary);
+  border-radius: 5rem;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  background-color: var(--color-highlight);
+  color: var(--color-white);
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: var(--color-black);
+  border-color: var(--color-white);
 }
