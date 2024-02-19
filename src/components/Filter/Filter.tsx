@@ -7,7 +7,7 @@ const Filter: React.FC = () => {
 
   return (
     <div className="filter-container">
-      <label htmlFor="filter" className="filter-label">Filter:</label>
+      <label htmlFor="filter" className="filter-label">Filter:
       <input
         className="filter-input"
         type="text"
@@ -15,9 +15,9 @@ const Filter: React.FC = () => {
         name="filter"
         value={filterValue}
         onChange={handleFilterValueChange}
-      />
-      <label htmlFor="filter-option" className="filter-label">By:</label>
-      <select value={filterCriteria} onChange={handleCriteriaChange} name="filter-option">
+      /></label>
+      <label htmlFor="filter-option" className="filter-label">By:
+      <select className="filter-input select" value={filterCriteria} onChange={handleCriteriaChange} name="filter-option">
         <option value="name">Name</option>
         <option value="code">Code</option>
         <option value="continent">Continent</option>
@@ -25,7 +25,7 @@ const Filter: React.FC = () => {
         <option value="native">Native</option>
         <option value="phone">Phone</option>
         <option value="languages">Languages</option>
-      </select>
+      </select></label>
     </div>
   );
 };
