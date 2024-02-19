@@ -3,7 +3,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--color-black);
+  background-color: var(--color-dark-text);
+  color: var(--color-gray);
   padding: 20px;
   z-index: 999;
   font-size: 14px;
