@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Country } from "../../../models/Country";
 import "../../../styles/ListItem.css";
-import { Color } from "../List";
 import useData from "../../../hooks/useData";
 import ListItemButtons from "./ListItemButtons";
 import ListItemDetails from "./ListItemDetails";
+import { Color } from "../../../hooks/useColor";
 
 interface ListItemProps {
   country: Country;
