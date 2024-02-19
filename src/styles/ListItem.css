@@ -12,18 +12,14 @@
   padding: 20px;
 }
 
-.toggle-select:hover{
-  padding-left: 15px;
-}
-
 .list-item-button-container {
   position: absolute;
   top: 0;
   right: 0;
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  padding: 10px 15px;
+  gap: 5px;
+  margin: 10px;
 }
 
 @media screen and (max-width: 768px){
@@ -31,13 +27,7 @@
     padding: 20px 10px;
   }
 
-  .toggle-select:hover {
-    padding-left: 5px;
-  }
-
   .list-item-button-container {
     position: relative;
-    gap: 5px;
-    padding: 10px;
   }
 }
