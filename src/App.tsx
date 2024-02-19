@@ -1,5 +1,6 @@
 import React from "react";
 import CountryListContainer from "./components/List/CountryListContainer";
+import "./styles/colors.css";
 import "./styles/App.css";
 import useData from "./hooks/useData";
 import SelectedCountryDisplay from "./components/SelectedCountryDisplay";
