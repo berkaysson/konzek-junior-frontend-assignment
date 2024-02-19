@@ -8,10 +8,9 @@ const SelectedCountryDisplay: React.FC = () => {
   const selectedCountry = filteredCountries?.countries.find(
     (country: Country) => country.code === checked
   );
-
   return (
     <>
-      {checked && (
+      {selectedCountry && (
         <div className="selected-country-display">
           {selectedCountry && (
             <>
