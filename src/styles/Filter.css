@@ -1,14 +1,23 @@
 .filter-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.filter-label {
-  font-size: 0.9rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20px;
 }
 
 .filter-input {
   margin-bottom: 10px;
+  height: 3rem;
+  background-color: var(--color-dark-background);
+  border: 2px solid var(--color-primary);
+  border-radius: 5rem;
+  padding: 5px 20px;
+  color: var(--color-white);
+  margin-right: 20px;
+  margin-left: 5px;
+}
+
+.filter-input:hover{
+  border-color: var(--color-white);
 }
