@@ -9,20 +9,14 @@ const SelectedCountryDisplay: React.FC = () => {
     (country: Country) => country.code === checked
   );
   return (
-    <>
-      {selectedCountry && (
-        <div className="selected-country-display">
-          {selectedCountry && (
-            <>
-              <h2>Selected Country</h2>
-              <p>
-                Name: {selectedCountry.name} ({selectedCountry.code})
-              </p>
-            </>
-          )}
-        </div>
-      )}
-    </>
+    <div className="selected-country-display">
+      <h2>{selectedCountry ? "Selected Country": "No selected Country"}</h2>
+      <p>
+        {selectedCountry ? 
+        `Name: ${selectedCountry.name} (${selectedCountry.code})`
+        : "Click on a Country"}
+      </p>
+    </div>
   );
 };
 
