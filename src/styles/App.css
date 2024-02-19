@@ -13,6 +13,13 @@
   margin-top: 20px;
 }
 
+#header{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 button {
   border: 1px solid var(--color-primary);
   border-radius: 5rem;
@@ -29,4 +36,8 @@ button:hover{
   cursor: pointer;
   background-color: var(--color-black);
   border-color: var(--color-white);
+}
+
+h1{
+  font-size: 1.5rem;
 }

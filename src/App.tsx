@@ -4,6 +4,7 @@ import "./styles/colors.css";
 import "./styles/App.css";
 import useData from "./hooks/useData";
 import SelectedCountryDisplay from "./components/SelectedCountryDisplay";
+import Header from "./components/Header";
 
 const App: React.FC = () => {
   const { data, loading, error } = useData();
@@ -13,8 +14,8 @@ const App: React.FC = () => {
 
   return (
     <div className="app-container">
-      <h1>Country List</h1>
       <SelectedCountryDisplay />
+      <Header />
       {data && <CountryListContainer />}
     </div>
   );
