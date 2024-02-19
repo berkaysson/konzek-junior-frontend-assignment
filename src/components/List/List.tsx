@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ListItem from "./ListItem";
+import ListItem from "./ListItem/ListItem";
 import "../../styles/List.css";
 import useData from "../../hooks/useData";
 
