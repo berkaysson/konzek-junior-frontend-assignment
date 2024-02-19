@@ -48,12 +48,14 @@ const ListItemButtons: React.FC<ListItemButtonsProps> = ({
       <button
         className="details-toggle-button list-item-button"
         onClick={() => setShowDetails(!showDetails)}
+        aria-label={showDetails ? "Hide details" : "Show details"}
       >
         {!showDetails ? <PiCaretDownBold /> : <PiCaretUpBold />}
       </button>
       <button
         onClick={copyCountryInfo}
         className="copy-button list-item-button"
+        aria-label="Copy country information to clipboard"
       >
         {copyButtonIcon}
       </button>
