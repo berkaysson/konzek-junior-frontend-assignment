@@ -3,8 +3,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding: 20px;
 }
 
 .filter-input {
@@ -25,7 +24,7 @@
 
 @media screen and (max-width: 768px) {
   .filter-container {
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
   }
