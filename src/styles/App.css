@@ -30,6 +30,7 @@ button {
   font-size: 14px;
   background-color: var(--color-highlight);
   color: var(--color-white);
+  transition: background-color 0.2s linear;
 }
 
 button:hover{
