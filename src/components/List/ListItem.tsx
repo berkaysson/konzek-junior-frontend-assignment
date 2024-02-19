@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Country } from "../../models/Country";
 import "../../styles/ListItem.css";
 import { Color } from "./List";
 import useData from "../../hooks/useData";
+import { PiCaretDownBold, PiCaretUpBold, PiCheck } from "react-icons/pi";
+import { PiCopyDuotone } from "react-icons/pi";
 
 interface ListItemProps {
   country: Country;
@@ -12,7 +14,7 @@ interface ListItemProps {
 const ListItem: React.FC<ListItemProps> = ({ country, backgroundColor }) => {
   const { checked, handleCheckedToggle } = useData();
   const [showDetails, setShowDetails] = useState<boolean>(false);
-  const [buttonText, setButtonText] = useState<string>("Copy");
+  const [copyButtonIcon, setcopyButtonIcon] = useState<ReactNode>(<PiCopyDuotone />);
   const isItemChecked: boolean = checked === country.code;
 
   const copyCountryInfo = (): void => {
@@ -24,9 +26,9 @@ const ListItem: React.FC<ListItemProps> = ({ country, backgroundColor }) => {
       ?.map((state) => `${state.name} (${state.code})`)
       .join(", ")}`;
     navigator.clipboard.writeText(countryInfo);
-    setButtonText("Copied");
+    setcopyButtonIcon(<PiCheck />);
     setTimeout(() => {
-      setButtonText("Copy");
+      setcopyButtonIcon(<PiCopyDuotone />);
     }, 1000);
   };
 
@@ -89,13 +91,13 @@ const ListItem: React.FC<ListItemProps> = ({ country, backgroundColor }) => {
           className="details-toggle-button list-item-button"
           onClick={() => setShowDetails(!showDetails)}
         >
-          {showDetails ? "Hide" : "Show"} Details
+          {!showDetails ? <PiCaretDownBold /> : <PiCaretUpBold />}
         </button>
         <button
           onClick={copyCountryInfo}
           className="copy-button list-item-button"
         >
-          {buttonText}
+          {copyButtonIcon}
         </button>
       </div>
     </li>
