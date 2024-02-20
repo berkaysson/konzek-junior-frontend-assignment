@@ -2,6 +2,7 @@
 
 Welcome to the KONZEK Junior Frontend Developer Assignment repository! This project is a single-page application developed as part of the application process for the Junior Frontend Developer position at KONZEK.
 
+App consumes the [GraphQL Public Countries API](https://studio.apollographql.com/public/countries/home?variant=current )
 ## Project Overview
 
 The goal of this assignment is to create a single-page application with the following functionalities:
