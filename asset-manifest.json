@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/konzek-junior-frontend-assignment/static/css/main.979b1188.css",
+    "main.css": "/konzek-junior-frontend-assignment/static/css/main.230c8574.css",
     "main.js": "/konzek-junior-frontend-assignment/static/js/main.3074b9c7.js",
     "index.html": "/konzek-junior-frontend-assignment/index.html",
-    "main.979b1188.css.map": "/konzek-junior-frontend-assignment/static/css/main.979b1188.css.map",
+    "main.230c8574.css.map": "/konzek-junior-frontend-assignment/static/css/main.230c8574.css.map",
     "main.3074b9c7.js.map": "/konzek-junior-frontend-assignment/static/js/main.3074b9c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.979b1188.css",
+    "static/css/main.230c8574.css",
     "static/js/main.3074b9c7.js"
   ]
 }
