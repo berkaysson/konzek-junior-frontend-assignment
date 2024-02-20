@@ -30,7 +30,7 @@ const Filter: React.FC = () => {
       <label htmlFor="filter-option" className="filter-label">
         By:
         <select
-          className="filter-input select"
+          className="filter-input filter-select"
           value={filterCriteria}
           onChange={handleCriteriaChange}
           name="filter-option"
