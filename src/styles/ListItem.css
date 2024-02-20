@@ -44,3 +44,13 @@
     left: 0;
   }
 }
+
+@media screen and (min-width: 1444px) {
+  .toggle-select {
+    padding: 20px 40px;
+  }
+
+  .list-item-button-container {
+    margin-right: 40px;
+  }
+}

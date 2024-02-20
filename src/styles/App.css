@@ -5,7 +5,8 @@
 
 .loading {
   font-size: 1.2rem;
-  margin-top: 20px;
+  margin: 20px;
+  color: white;
 }
 
 .error-message {
@@ -49,4 +50,10 @@ button:hover {
 
 h1 {
   font-size: 1.5rem;
+}
+
+@media screen and (min-width: 1444px) {
+  #header {
+    padding: 20px 40px;
+  }
 }
