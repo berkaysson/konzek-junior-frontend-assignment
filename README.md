@@ -17,8 +17,7 @@ The goal of this assignment is to create a single-page application with the foll
 To get started with the project, follow these steps:
 
 1. Clone the relevant repositories mentioned above.
-2. Set up each repository as per their respective README instructions.
-3. Install dependencies and run the development server for the main project repository.
+2. Install dependencies and run the development server for the main project repository.
 
 ## Technologies Used
 
